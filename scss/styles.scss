@@ -26,6 +26,10 @@ html * {
   font-family: 'ProximaNova', sans-serif;  
 }
 
+body {
+  margin: auto 1em;
+}
+
 
 .desktop-only {
   @media(max-width:800px){
@@ -41,11 +45,10 @@ html * {
 }
 
 
-
-header {
+#header {
   display: grid;
   grid-template-columns: [start] 14fr [title-start] 38fr [title-end] 22fr [end];
-  @media(max-width: 800px){
+  @media(max-width: 800px) and (orientation: portrait) {
     display: block;
   }
 
@@ -88,15 +91,13 @@ header {
   }
 }
 
-
-
 #scroll {
     position: relative;
     width: 100%;
     margin: 50px 0 50px auto;
     display: grid;
     grid-template-columns: 60% 40%;
-    @media(max-width:800px){
+    @media(max-width:800px) and (orientation: portrait) {
      display: block;
     }
   }
@@ -104,21 +105,23 @@ header {
   .scroll__graphic {
     grid-column: 1/3;
     grid-row: 1/2;
-    width: 100% !important;
+    width: calc(100% + 2em) !important;
+    margin: 0 -1em;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
     max-height: 100vh;
     z-index: 10;
-    @media(max-width:800px){
+    @media(max-width:800px) and (orientation: portrait) {
       z-index: 101;
     }
 }
 
 .scroll__text {
     grid-column: 2/3;
-    width: 80%;
+    max-width: 450px;
+    width: 90%;    
     margin: auto 0;
     grid-row: 1/2;
     z-index: 100;
@@ -132,18 +135,27 @@ header {
     }
   
     .step {
-      margin-bottom: 80vh;
+      margin-top: 90vh;
       @media(max-width: 812px) and (orientation: portrait){
         min-height: max-content;
         margin-top: 20vh;
         margin-bottom: 0;
       }
     } 
+
+    .step:nth-child(1){
+      @media(max-width: 812px) and (orientation: portrait){
+        margin-top: -65vh;
+      }
+    }
   
     .step div {
       background-color: rgba(255,255,255, 0.8);
       padding: 20px;
       line-height: 1.6;
+      @media(max-width:800px) and (orientation: portrait) {
+        padding: 0;
+      }
   
       p {
         font-size: 18px;        
@@ -163,7 +175,8 @@ header {
       }
 
       img {
-        width: 100%;
+        max-width: 110%;
+        margin-left: -7%;
       }
     }
   }
@@ -190,5 +203,37 @@ header {
       }
     }
 }
+
+
+/* Created by Texty*/
+.socio-wrapper {
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  margin: 4em auto 4em auto;
+
+  .socio-icons-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+  }
+
+  a {
+    border-bottom: 0;
+  } 
+
+  img {
+    max-width: 250px;
+    max-height: 4em;
+    width: 90%;
+  }
+}
+
 
   
