@@ -5,12 +5,12 @@ var step = document.querySelector('#scroll > .scroll__text > .step'); // text.se
 var scroller = scrollama();
 
 function handleStepEnter(r) {  
-
     let pictures_src = $(r.element).data("stuff"); 
+    
     if(pictures_src.length > 1) {
         document.getElementById('pictures').innerHTML = '';
-       // document.getElementById('pictures').style.backgroundImage = 'url('+pictures_src[0] +')'
          for(var i=0; i < pictures_src.length; i++ ){
+
             (function(i) {
                 setTimeout(function() { 
                     var pic = document.createElement("img");
@@ -20,9 +20,8 @@ function handleStepEnter(r) {
               })(i);                     
         }   
         
-    }
+    } 
 }
-
 
 function handleContainerEnter(response) {
     // response = { direction }
